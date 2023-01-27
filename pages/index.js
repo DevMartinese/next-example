@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Router from 'next/router';
 
 const AddItem = () => {
   const [name, setName] = useState('');
@@ -13,6 +14,7 @@ const AddItem = () => {
         headers: { 'Content-Type': 'application/json' },
       });
       const data = await res.json();
+      Router.push('/getTask');
       console.log(data);
     } catch (err) {
       console.error(err);
